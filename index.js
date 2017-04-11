@@ -8,7 +8,7 @@ const out = path.join(process.cwd(), 'out');
 
 const {info, warn, error} = console;
 
-function echoHash(e, filename) {
+function renameWithHash(e, filename) {
   if (e === 'change') {
     return false;
   }
@@ -57,6 +57,6 @@ fs.mkdir(dir, 0o775, (err) => {
     
     console.info(`Watching ${chalk.blue.bold(dir)}...`);
     
-    fs.watch(dir, null, echoHash);
+    fs.watch(dir, null, renameWithHash);
   });
 });
