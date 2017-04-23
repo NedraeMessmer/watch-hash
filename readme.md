@@ -15,3 +15,7 @@ Configuration coming later; for now, edit `index.js` to fiddle with things.
   * [ ] Option to use other hashing algorithms
   * [ ] Option to use timestamps
 * [ ] Better name or something I dunno
+
+### License
+
+[MIT](https://opensource.org/licenses/MIT)
