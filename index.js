@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 const fs = require('fs');
 const crypto = require('crypto');
 const path = require('path');
@@ -15,6 +17,10 @@ function renameWithHash(e, filename) {
 
   const fullPath = path.join(dir, filename);
   const ext = path.extname(filename);
+
+  if (ext === '.dtapart') {
+    return false;
+  }
 
   fs.readFile(fullPath, (err, data) => {
     if (err) {
