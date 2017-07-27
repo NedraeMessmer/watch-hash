@@ -10,6 +10,12 @@ const out = path.join(process.cwd(), 'out');
 
 const {info, warn, error} = console;
 
+const blacklist = [
+  '.dtapart',
+  '.part',
+  '.crdownload'
+];
+
 function renameWithHash(e, filename) {
   if (e === 'change') {
     return false;
@@ -18,7 +24,7 @@ function renameWithHash(e, filename) {
   const fullPath = path.join(dir, filename);
   const ext = path.extname(filename);
 
-  if (ext === '.dtapart') {
+  if (blacklist.includes(ext)) {
     return false;
   }
 
