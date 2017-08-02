@@ -32,7 +32,12 @@ function renameWithHash(e, filename) {
     if (err) {
       return false;
     }
-    
+
+    if (data.length === 0) {
+      fs.unlink(fullPath, err => {});
+      return false;
+    }
+
     const hash = crypto.createHash('sha1');
     
     hash.on('readable', () => {
@@ -40,7 +45,7 @@ function renameWithHash(e, filename) {
       
       if (data) {
         const sum = data.toString('hex');
-        
+
         fs.rename(fullPath, path.join(out, `${sum}${ext}`), (e) => {
           e && console.warn(e);
         });
